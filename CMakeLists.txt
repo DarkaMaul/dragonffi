@@ -186,6 +186,7 @@ set(DFFI_LINK_LIBRARIES
   ${llvm_libs}
 )
 
+option(DFFI_BUILD_DOCS "Build documentation" OFF)
 option(DFFI_STATIC_LLVM "Create a static library with dffi and llvm/clang" OFF)
 
 # From LLVM's DetermineGCCCompatible.cmake
@@ -282,3 +283,7 @@ add_subdirectory(bindings)
 
 option(BUILD_TESTS "Build tests" ON)
 add_subdirectory(tests)
+
+if (DFFI_BUILD_DOCS)
+  add_subdirectory(docs)
+endif()
